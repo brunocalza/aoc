@@ -19,19 +19,18 @@ fn main() {
                 sets.split("; ").collect::<Vec<&str>>(),
             )
         })
-        .filter(|(_, sets)| {
+        .filter_map(|(game_id, sets)| {
             for set in sets {
                 for subset in set.split(", ").collect::<Vec<&str>>() {
                     let (n, color) = subset.split_once(' ').unwrap();
                     if n.parse::<i32>().unwrap() > *constraints.get(color).unwrap() {
-                        return false;
+                        return None;
                     }
                 }
             }
 
-            true
+            Some(game_id)
         })
-        .map(|(game, _)| game)
         .sum();
 
     println!("{}", part1_result);
