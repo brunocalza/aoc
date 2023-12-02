@@ -29,7 +29,7 @@ fn replace(line: &str) -> String {
     let mut s = String::new();
     for index in 0..line.len() {
         let l = &line[index..];
-        
+
         for (pattern, ch) in &substitutions {
             if l.starts_with(pattern) {
                 s.push(*ch);
