@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'day13",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin",
+                    "--package=day13"
+                ],
+                "filter": {
+                    "name": "day13",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
